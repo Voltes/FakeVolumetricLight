@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/FakeVolumetricLightShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/classicNoise3d.cginc">
     <Files>
-      <File FileName="Assets/Resources/FakeVolumetricLightShader.shader" Line="95" Column="29" />
+      <File FileName="Assets/Resources/classicNoise3d.cginc" Line="16" Column="23" />
+      <File FileName="Assets/Resources/FakeVolumetricLightShader 1.shader" Line="1" Column="44" />
+      <File FileName="Assets/Resources/FakeVolumetricLightShader.shader" Line="80" Column="28" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/avsfakelovemachine/Github/FakeVolumetricLight/Assets/Resources/FakeVolumetricLightShader.shader" line="57" column="37" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

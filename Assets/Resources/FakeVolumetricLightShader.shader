@@ -1,13 +1,11 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
- Shader "Custom/FakeVolumetricLightShader" {
+﻿ Shader "Custom/FakeVolumetricLightShader" {
  Properties {
      _Fresnel("Fresnel", Range (0., 10.)) = 1.
      _AlphaOffset("Alpha Offset", Range(0., 1.)) = 1.
      _NoiseSpeed("Noise Speed", Range(0., 1.)) = .5
      _Ambient("Ambient", Range(0., 1.)) = .3
      _Intensity("Intensity", Range(0., 1.5)) = .2
-     _Fade("Fade", Range(1., 10.)) = 1.
+     _Fade("Fade", Range(0., 10.)) = 1.
      _Wind("Wind", Range(0., 1.)) = .1
  }
  
@@ -17,7 +15,7 @@
      Tags {"RenderType" = "Transparent" "Queue" = "Transparent"} 
      LOD 100 // set level of detail minimum
      
-     ZWrite Off // we don't need depth buffer due to transparency
+     ZWrite Off // we don't need depth buffer, we're gonana use transparency and blending mode
      Blend SrcAlpha One // blend mode - additive with transparency
      
      Pass {  
@@ -52,10 +50,11 @@
              v2f vert (appdata_t v){
 				v2f o;
 
-				// move model's vertices to screen position 
+				// add noise to vertices 
 				float noise = _Wind * cnoise(v.normal + _Time.y);
 				float4 nv = float4(v.vertex.xyz + noise * v.normal, v.vertex.w);
-				o.vertex = UnityObjectToClipPos(nv);
+				// move model's vertices to screen position 
+				o.vertex = UnityObjectToClipPos(nv);	
 				// get vertex's world position 
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz; 
 				// get world mormal
